@@ -26,7 +26,8 @@ module.exports = function (options) {
     } else if (file.isNull()) {
       return cb(null, file);
     } else  {
-      return cb(null, file);
+      // stream
+      return cb(new gutil.PluginError(PLUGIN_NAME, 'gulp-head-picker: Cannot get headings in a stream'));
     }
 
     cb(null, file);

@@ -16,6 +16,7 @@
     "lodash": "^2.4.1"
   },
   "devDependencies": {
+    "chai": "^1.9.2",
     "gulp": "^3.8.9",
     "gulp-debug": "^1.0.1",
     "gulp-util": "^3.0.1",
