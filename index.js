@@ -23,6 +23,7 @@ module.exports = function (options) {
       }
       file[options.property] = res.toc;
       file.contents = new Buffer(res.html);
+      delete res.html;
     } else if (file.isNull()) {
       return cb(null, file);
     } else  {
