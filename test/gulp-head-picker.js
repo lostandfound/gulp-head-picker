@@ -20,6 +20,7 @@ function test (input, options, check) {
       // Keep original contents
       .pipe(es.map(function (file, cb) {
         file.originalContents = file.contents;
+        console.log(options);
         cb(null, file);
       }))
       // Execute plugin
@@ -40,6 +41,12 @@ describe('gulp-head-picker', function() {
   it('should be able to customize property name', test(inputDir + 'test.html', {property: 'data'}, function (file, cb) {
     expect(file.toc).to.be.undefined;
     expect(file.data).to.be.an('array');
+    cb();
+  }));
+
+  it('should get contents in xhtml format', test(inputDir + 'test.html', {hpOptions:{format: 'xml'}}, function (file, cb) {
+    var str = '<!DOCTYPE html>\n<html>\n<head>\n  <meta charset="utf-8"/>\n  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>\n  <title>title</title>\n</head>\n<body>\n  <h1 id="toc_index_0">Heading1</h1>\n  <h2 id="toc_index_1">Heading2</h2>\n  <h3 id="toc_index_2">Heading3</h3>\n  <h4 id="toc_index_3">Heading4</h4>\n  <h5 id="toc_index_4">Heading5</h5>\n  <h6 id="toc_index_5">Heading6</h6>\n  <hr/>\n</body>\n</html>';
+    expect(file.contents.toString()).to.equal(str);
     cb();
   }));
 
@@ -67,4 +74,5 @@ describe('gulp-head-picker', function() {
     res.write(nullFile);
     res.end();
   });
+
 });

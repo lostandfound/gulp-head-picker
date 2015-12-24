@@ -1,6 +1,6 @@
 {
   "name": "gulp-head-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "gulp plugin to extract heading elements from HTML string.",
   "main": "index.js",
   "keywords": [
@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "event-stream": "^3.1.7",
-    "head-picker": "0.0.1",
+    "head-picker": "0.0.2",
     "lodash": "^2.4.1"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
     "gulp": "^3.8.9",
     "gulp-debug": "^1.0.1",
     "gulp-util": "^3.0.1",
+    "head-picker": "0.0.2",
     "mocha": "^2.0.1"
   }
 }
